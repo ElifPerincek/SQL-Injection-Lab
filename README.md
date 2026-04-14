@@ -98,6 +98,4 @@ Bu laboratuvar çalışması sonucunda:
 
 | Alan | Bilgi |
 |------|-------|
-| **Ad Soyad** | [Adınız Soyadınız] |
-| **Üniversite** | [Üniversite Adı] — Bilgisayar Mühendisliği |
-| **Öğrenci No** | [Numaranız]
+| **Ad Soyad** | [Elif Perincek] |
