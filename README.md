@@ -33,3 +33,71 @@ Bu çalışma, **Docker** üzerinde koşan **DVWA (Damn Vulnerable Web Applicati
 Sistemi ayağa kaldırmak için terminalde şu komut kullanılır:
 ```bash
 docker run --rm -it -p 80:80 vulnerables/web-dvwa
+
+# 🔐 DVWA SQL Injection Lab Raporu
+
+## ⚙️ Aşama 2: Sistem Konfigürasyonu
+
+Uygulama ayağa kalktıktan sonra tarayıcı üzerinden aşağıdaki adımlar sırayla tamamlanır.
+
+### 1. Sistem Erişimi ve Giriş
+
+Tarayıcıdan `http://localhost` adresine gidilir. Karşınıza çıkan ekranda varsayılan kimlik bilgileriyle oturum açılır:
+
+| Alan | Değer |
+|------|-------|
+| Username | `admin` |
+| Password | `password` |
+
+---
+
+### 2. Veri Tabanı Yapılandırması (Initial Setup)
+
+Sisteme ilk girişte veri tabanı tablolarının oluşturulması gerekir.
+
+> **Setup DVWA** sayfasındaki **Create / Reset Database** butonuna tıklanarak gerekli tablolar ve örnek kullanıcılar veri tabanına enjekte edilir.
+
+---
+
+### 3. Güvenlik Seviyesinin Belirlenmesi
+
+Zafiyetin en temel halini gözlemlemek için:
+
+1. Sol menüdeki **DVWA Security** sekmesine gidin
+2. Açılır menüden **"Low"** seçeneğini seçin
+3. **Submit** butonuna basarak ayarı kaydedin
+
+---
+
+## ⚡ Aşama 3: Zafiyetin İstismarı (Exploitation)
+
+Yapılandırma tamamlandıktan sonra **SQL Injection** sekmesine geçilerek saldırı simülasyonu gerçekleştirilmiştir.
+
+| Parametre | Değer |
+|-----------|-------|
+| **Hedef** | `users` tablosundaki tüm verileri yetkisiz olarak çekmek |
+| **Kullanılan Payload** | `` %' OR '1'='1 `` |
+
+| Durum | Görsel Kanıt |
+|-------|-------------|
+| Saldırı Girişi | *(ekran görüntüsü eklenecek)* |
+| Veri Sızıntısı | *(ekran görüntüsü eklenecek)* |
+
+---
+
+## 🔍 Sonuç ve Değerlendirme
+
+Bu laboratuvar çalışması sonucunda:
+
+- Girdi temizleme (**input validation**) yapılmayan sistemlerin basit mantıksal ifadelerle nasıl manipüle edilebileceği gözlemlenmiştir.
+- Savunma mekanizması olarak **Prepared Statements** kullanımının önemi uygulamalı olarak kavranmıştır.
+
+---
+
+## 🎓 Hazırlayan
+
+| Alan | Bilgi |
+|------|-------|
+| **Ad Soyad** | [Adınız Soyadınız] |
+| **Üniversite** | [Üniversite Adı] — Bilgisayar Mühendisliği |
+| **Öğrenci No** | [Numaranız]
